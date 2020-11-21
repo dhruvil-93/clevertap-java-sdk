@@ -15,6 +15,8 @@ import java.util.Map;
 public class User {
   private String identity;
   private String email;
+  private String name;
+  private String phone;
   private Map<String, Object> profileData;
   private Map<String, EventSummary> events;
   private List<PlatformInfo> platformInfo;

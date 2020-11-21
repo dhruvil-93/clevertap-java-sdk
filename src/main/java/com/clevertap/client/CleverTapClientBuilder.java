@@ -1,6 +1,6 @@
 package com.clevertap.client;
 
-import com.clevertap.api.DataCenterRegion;
+import com.clevertap.model.DataCenterRegion;
 import lombok.AccessLevel;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;

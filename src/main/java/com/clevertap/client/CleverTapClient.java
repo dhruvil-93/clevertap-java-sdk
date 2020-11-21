@@ -1,7 +1,6 @@
 package com.clevertap.client;
 
-import com.clevertap.api.DataCenterRegion;
-import com.clevertap.api.UsersApi;
+import com.clevertap.api.UserApi;
 import com.clevertap.exception.CleverTapException;
 import com.clevertap.model.*;
 import org.apache.commons.lang3.StringUtils;
@@ -15,14 +14,14 @@ import javax.ws.rs.core.Configuration;
 
 public class CleverTapClient {
 
-  private final UsersApi usersApi;
+  private final UserApi usersApi;
 
   CleverTapClient(
       DataCenterRegion region, String accountId, String passcode, Configuration configuration) {
     Client client = new JerseyClientBuilder().withConfig(configuration).build();
     client.register(new CleverTapAuthFilter(accountId, passcode));
     WebTarget target = client.target(region.getUrl());
-    usersApi = WebResourceFactory.newResource(UsersApi.class, target);
+    usersApi = WebResourceFactory.newResource(UserApi.class, target);
   }
 
   public GetCursorResponse createCursor(GetCursorRequest request) throws CleverTapException {

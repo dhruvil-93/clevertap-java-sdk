@@ -1,6 +1,6 @@
 package com.clevertap.client;
 
-import com.clevertap.api.DataCenterRegion;
+import com.clevertap.model.DataCenterRegion;
 import org.glassfish.jersey.client.ClientConfig;
 import org.junit.jupiter.api.Test;
 
@@ -23,23 +23,23 @@ class CleverTapClientBuilderTest {
     exception =
         assertThrows(
             IllegalArgumentException.class,
-            () -> CleverTapClientBuilder.builder(DataCenterRegion.EU, "  ", "passcode"));
+            () -> CleverTapClientBuilder.builder(DataCenterRegion.EU1, "  ", "passcode"));
     assertEquals("account id cannot be blank", exception.getMessage());
 
     exception =
         assertThrows(
             IllegalArgumentException.class,
-            () -> CleverTapClientBuilder.builder(DataCenterRegion.EU, "account id", "  "));
+            () -> CleverTapClientBuilder.builder(DataCenterRegion.EU1, "account id", "  "));
     assertEquals("passcode cannot be blank", exception.getMessage());
 
     assertDoesNotThrow(
-        () -> CleverTapClientBuilder.builder(DataCenterRegion.EU, "account id", "passcode"));
+        () -> CleverTapClientBuilder.builder(DataCenterRegion.EU1, "account id", "passcode"));
   }
 
   @Test
   void withHttpClientConfiguration() {
     CleverTapClientBuilder builder =
-        CleverTapClientBuilder.builder(DataCenterRegion.EU, "account id", "passcode");
+        CleverTapClientBuilder.builder(DataCenterRegion.EU1, "account id", "passcode");
 
     Exception exception =
         assertThrows(
@@ -52,7 +52,7 @@ class CleverTapClientBuilderTest {
   @Test
   void build() {
     CleverTapClientBuilder builder =
-        CleverTapClientBuilder.builder(DataCenterRegion.EU, "account id", "passcode");
+        CleverTapClientBuilder.builder(DataCenterRegion.EU1, "account id", "passcode");
 
     builder.build();
     assertNotNull(builder.getConfiguration());

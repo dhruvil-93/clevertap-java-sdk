@@ -10,5 +10,6 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GetCursorResponse {
+  private String status;
   private String cursor;
 }
