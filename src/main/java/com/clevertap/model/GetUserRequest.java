@@ -1,7 +1,9 @@
 package com.clevertap.model;
 
+import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 
+@Getter
 public class GetUserRequest {
 
   private final String email;

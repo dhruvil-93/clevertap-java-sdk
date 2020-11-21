@@ -1,3 +1,10 @@
 package com.clevertap.model;
 
-public class GetUsersFromCursorRequest {}
+import lombok.Builder;
+import lombok.Getter;
+
+@Builder
+@Getter
+public class GetUsersFromCursorRequest {
+  private final String cursor;
+}

@@ -1,11 +1,15 @@
 package com.clevertap.model;
 
+import lombok.Builder;
+import lombok.Getter;
+
+@Builder
+@Getter
 public class GetCursorRequest {
-  private int batchSize;
-  private boolean requireAppFields;
-  private boolean requireEventSummary;
-  private boolean requireCustomProfileProperties;
-  private String eventName;
-  private int from;
-  private int to;
+
+  private final int batchSize;
+  private final boolean requireAppFields;
+  private final boolean requireEventsSummary;
+  private final boolean requireCustomProfileProperties;
+  private final CleverTapQuery query;
 }
