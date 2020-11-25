@@ -10,12 +10,10 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EventSummary {
+public class GetProfileCountResponse {
+  private ApiResponseStatus status;
   private long count;
 
-  @JsonProperty("first_seen")
-  private long firstSeen;
-
-  @JsonProperty("last_seen")
-  private long lastSeen;
+  @JsonProperty("req_id")
+  private long requestId;
 }

@@ -1,8 +1,9 @@
 package com.clevertap.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter(AccessLevel.NONE)
@@ -10,12 +11,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EventSummary {
-  private long count;
-
-  @JsonProperty("first_seen")
-  private long firstSeen;
-
-  @JsonProperty("last_seen")
-  private long lastSeen;
+public class DisassociateResponse {
+  private ApiResponseStatus status;
+  private long processed;
+  private List<UnprocessedRecord> unprocessed;
 }

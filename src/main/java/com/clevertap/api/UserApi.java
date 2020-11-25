@@ -3,15 +3,16 @@ package com.clevertap.api;
 import com.clevertap.model.*;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 
-@Consumes("application/json")
-@Produces("application/json")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 public interface UserApi {
 
   @Path("/1/profiles.json")
   @POST
   GetCursorResponse createCursor(
-      @QueryParam("batch_size") int batchSize,
+      @QueryParam("batch_size") long batchSize,
       @QueryParam("app") boolean requireAppFields,
       @QueryParam("events") boolean requireEventsSummary,
       @QueryParam("profile") boolean requireCustomProfileProperties,
@@ -36,4 +37,25 @@ public interface UserApi {
   @Path("/1/upload")
   @POST
   UploadUsersResponse uploadUser(UploadUsersRequest request);
+
+  @Path("/1/counts/profiles.json")
+  @POST
+  GetProfileCountResponse getProfileCount(
+      @QueryParam("req_id") long requestId, CleverTapQuery query);
+
+  @Path("/1/delete/profiles.json")
+  @POST
+  DeleteUserProfileResponse deleteUserProfile(DeleteUserProfileRequest request);
+
+  @Path("/1/demerge/profiles.json")
+  @POST
+  DemergeUserProfileResponse demergeUserProfile(DemergeUserProfileRequest request);
+
+  @Path("/1/subscribe")
+  @POST
+  SubscribeResponse subscribe(SubscribeRequest request);
+
+  @Path("/1/disassociate")
+  @POST
+  DisassociateResponse disassociate(DisassociateRequest request);
 }

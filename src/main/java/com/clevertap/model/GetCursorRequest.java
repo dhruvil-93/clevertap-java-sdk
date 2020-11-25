@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public class GetCursorRequest {
 
-  private final int batchSize;
+  private final long batchSize;
   private final boolean requireAppFields;
   private final boolean requireEventsSummary;
   private final boolean requireCustomProfileProperties;
